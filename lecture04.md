@@ -20,6 +20,9 @@
 ### RDSのセキュリティグループ
 <img width="1417" alt="スクリーンショット 2023-11-23 23 24 03" src="https://github.com/oomori-c/RaiseTech_lecture/assets/149781833/dcb1301a-eebc-43ed-b064-b25aa44d0c57">
 
+## EC2からRDSへ接続確認
+<img width="1074" alt="スクリーンショット 2023-11-23 22 35 14" src="https://github.com/oomori-c/RaiseTech_lecture/assets/149781833/edc45f0c-d8ae-4494-81af-6110bf3f3c64">
+
 
 ## 第4回課題で学んだこと
 ### サブネットについて
