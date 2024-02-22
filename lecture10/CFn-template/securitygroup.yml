@@ -1,0 +1,79 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Parameters:
+  name:
+    Type: String
+
+  myIP:
+    Type: String
+    Description: "Allow SSH access from this IP address"
+
+Resources:
+  ec2sg:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Lecture10-sg
+      GroupName: Lecture10-ec2sg
+      SecurityGroupIngress: 
+          - IpProtocol: tcp
+            FromPort: 22
+            ToPort: 22
+            CidrIp: !Ref myIP
+          - IpProtocol: tcp
+            FromPort: 80
+            ToPort: 80
+            CidrIp: "0.0.0.0/0"
+          - IpProtocol: tcp
+            FromPort: 3000
+            ToPort: 3000
+            CidrIp: "0.0.0.0/0"
+      VpcId: !ImportValue lecture10-vpc
+      Tags: 
+        - Key: Name
+          Value: !Sub "${name}-ec2-sg"
+
+  rdssg:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: "lecture10-RDS-SecurityGroup"
+      GroupName: lecture10-rdssg
+      SecurityGroupIngress: 
+          - IpProtocol: tcp
+            FromPort: 3306
+            ToPort: 3306
+            SourceSecurityGroupId: !Ref ec2sg
+      Tags: 
+        - Key: Name
+          Value: !Sub "${name}-rds-sg"
+      VpcId: !ImportValue lecture10-vpc
+
+  albsg:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: lecture10-ALB-SecurityGroup
+      GroupName: lecture10-albsg
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: "0.0.0.0/0"
+      Tags: 
+        - Key: Name
+          Value: !Sub "${name}-alb-sg"
+      VpcId: !ImportValue lecture10-vpc
+
+Outputs:
+  ec2sg:
+    Value: !Ref ec2sg
+    Export:
+      Name: !Sub "${name}-ec2sg"
+
+  rdssg:
+    Value: !Ref rdssg
+    Export:
+      Name: !Sub "${name}-rdssg"
+
+  albsg:
+    Value: !Ref albsg
+    Export:
+      Name: !Sub "${name}-albsg"
