@@ -156,19 +156,3 @@ Outputs:
     Value: !Ref PrivateSubnet2
     Export:
       Name: !Sub "${name}-private-subnet-2"
-
-# Route
-  PublicRouteTable:
-    Value: !Ref PublicRouteTable
-    Export:
-      Name: !Sub "${name}-public-routetable"
-
-  PrivateRouteTable1:
-    Value: !Ref PrivateRouteTable1
-    Export:
-      Name: !Sub "${name}-private-routetable-1"
-
-  PrivateRouteTable2:
-    Value: !Ref PrivateRouteTable2
-    Export:
-      Name: !Sub "${name}-private-routetable-2"
