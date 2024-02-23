@@ -66,16 +66,16 @@
 
 ## テンプレート作成時に使用したVScodeの拡張機能
 
-- **indent-rainbow-blocks**
+- **indent-rainbow-blocks**  
     インデントの色づけ
 
-- **CloudFormation Snippets**
+- **CloudFormation Snippets**  
     CloudFormationのリソースなど、自動で入力補助してくれる
 
-- **CloudFormation**
+- **CloudFormation**  
     startと入力するとテンプレートの要素を自動で入力してくれる
 
-- **YAML**
+- **YAML**  
     yaml言語のサポート
 
 ## 学んだこと
