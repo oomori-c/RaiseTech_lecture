@@ -31,7 +31,6 @@ Parameters:
     MaxLength: 41
     AllowedPattern: "[a-zA-Z0-9]*"
 
-
 Resources:
   EC2:
     Type: AWS::EC2::Instance
@@ -67,7 +66,6 @@ Resources:
       Tags:
         - Key: Name
           Value: !Sub "${name}-rds"
-
 
   DBSubnetGroup: 
     Type: "AWS::RDS::DBSubnetGroup"
@@ -163,39 +161,3 @@ Resources:
               - Effect: "Allow"
                 Action: "s3:*"
                 Resource: "*"
-
-Outputs:
-  EC2:
-    Value: !Ref EC2
-    Export:
-      Name: !Sub "${name}-ec2-instance"
-
-  RDS:
-    Value: !Ref RDS
-    Export:
-      Name: !Sub "${name}-rds"
-
-  DBSubnetGroup:
-    Value: !Ref DBSubnetGroup
-    Export:
-      Name: !Sub "${name}-db-subnet-group"
-
-  ALB:
-    Value: !Ref ALB
-    Export:
-      Name: !Sub "${name}-alb"
-
-  ALBtargetgroup:
-    Value: !Ref ALBtargetgroup
-    Export:
-      Name: !Sub "${name}-alb-target-group"
-
-  S3:
-    Value: !Ref S3
-    Export:
-      Name: !Sub "${name}-s3"
-
-  IAMRole:
-    Value: !Ref IAMRole
-    Export:
-      Name: !Sub "${name}-s3-IAMRole"

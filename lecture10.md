@@ -10,7 +10,6 @@
 | Network.yml | VPC<br>IGW<br>サブネット（パブリックサブネット２つ、プライベートサブネット２つ）<br>ルートテーブル |
 | SecurityGroup.yml | EC2セキュリティグループ<br>RDSセキュリティグループ<br>ALBセキュリティグループ |
 | Application.yml | EC2インスタンス<br>RDS<br>DBサブネットグループ<br>ALB<br>ALBターゲットグループ<br>リスナールール<br>S3バケット<br>IAMロール、ポリシー |
-  
 
 ### Network.yml
 
@@ -65,38 +64,28 @@
 ![setuzoku](lecture10/images/setuzoku.png)
 
 
-
-
-
 ## テンプレート作成時に使用したVScodeの拡張機能
 
 - **indent-rainbow-blocks**
-
     インデントの色づけ
 
 - **CloudFormation Snippets**
-
     CloudFormationのリソースなど、自動で入力補助してくれる
 
 - **CloudFormation**
-
     startと入力するとテンプレートの要素を自動で入力してくれる
 
 - **YAML**
-
     yaml言語のサポート
-
 
 ## 学んだこと
 
 * CloudFormationやInfrastructure as Codeについて、何となく苦手意識があり学習が進まなかったが、下記の動画と記事で苦手意識が減った。  
     全体の概要やよくあるミス等を見てから、どこでつまづきやすいのかを把握してから書き始めてみると、比較的導入しやすかった。  
     https://dev.classmethod.jp/articles/the_first_cloudformation/
-  
-  
+    
 * スペースインデントの数を間違えて、何度もやり直しとなった。  
     VScodeの拡張機能「**indent-rainbow-blocks**」でインデントを色づけすることで階層を把握して、解決した。  
-  
 
 * 論理IDは理解できたが、テンプレートの『Parameters』の意味を理解するのに時間がかかった。  
     下記の記事が参考になった。  
